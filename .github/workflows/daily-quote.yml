@@ -1,0 +1,44 @@
+name: Send Daily Quote Email
+
+on:
+  schedule:
+    # 11:00 UTC = 7:00 AM US Eastern (EDT, UTC-4). During EST (UTC-5) this
+    # runs at 6:00 AM Eastern instead — shift by 1 hour twice a year if you
+    # want a fixed local time, or change this to your own timezone's offset.
+    - cron: "0 11 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  send-quote:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Send today's quote
+        env:
+          EMAIL_SENDER: ${{ secrets.EMAIL_SENDER }}
+          EMAIL_RECIPIENT: ${{ secrets.EMAIL_RECIPIENT }}
+          EMAIL_APP_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
+        run: python scripts/send_quote.py
+
+      - name: Save quote history
+        run: |
+          git config user.name "daily-quote-bot"
+          git config user.email "actions@github.com"
+          git add data/history.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Record quote sent on $(date -u +%Y-%m-%d)"
+            git push
+          fi
