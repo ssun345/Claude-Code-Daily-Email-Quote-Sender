@@ -126,9 +126,12 @@ def send_email(msg):
             "Use a Gmail App Password, not your regular password."
         )
     context = ssl.create_default_context()
+    # Gmail displays app passwords as "abcd efgh ijkl mnop"; strip any spaces
+    # in case the secret was pasted with them.
+    password = APP_PASSWORD.strip().replace(" ", "")
     with smtplib.SMTP(SMTP_HOST, SMTP_PORT) as server:
         server.starttls(context=context)
-        server.login(SENDER_EMAIL, APP_PASSWORD)
+        server.login(SENDER_EMAIL, password)
         server.sendmail(SENDER_EMAIL, [RECIPIENT_EMAIL], msg.as_string())
 
 
