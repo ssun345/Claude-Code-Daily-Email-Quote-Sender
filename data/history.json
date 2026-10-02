@@ -1,10 +1,5 @@
 [
   {
-    "date": "2026-08-03",
-    "quote": "The way to get started is to quit talking and begin doing.",
-    "author": "Walt Disney"
-  },
-  {
     "date": "2026-08-04",
     "quote": "Keep your face always toward the sunshine, and shadows will fall behind you.",
     "author": "Walt Whitman"
@@ -298,5 +293,10 @@
     "date": "2026-10-01",
     "quote": "What you get by achieving your goals is not as important as what you become by achieving your goals.",
     "author": "Zig Ziglar"
+  },
+  {
+    "date": "2026-10-02",
+    "quote": "Gratitude turns what we have into enough.",
+    "author": "Aesop"
   }
 ]
