@@ -1,10 +1,5 @@
 [
   {
-    "date": "2026-08-07",
-    "quote": "Live in the sunshine, swim the sea, drink the wild air.",
-    "author": "Ralph Waldo Emerson"
-  },
-  {
     "date": "2026-08-08",
     "quote": "Keep your face always toward the sunshine, and shadows will fall behind you.",
     "author": "Walt Whitman"
@@ -298,5 +293,10 @@
     "date": "2026-10-05",
     "quote": "Gratitude turns what we have into enough.",
     "author": "Aesop"
+  },
+  {
+    "date": "2026-10-06",
+    "quote": "Life starts all over again when it gets crisp in the fall.",
+    "author": "F. Scott Fitzgerald"
   }
 ]
