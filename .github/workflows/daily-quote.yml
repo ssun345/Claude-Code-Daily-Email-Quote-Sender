@@ -1,11 +1,12 @@
 name: Send Daily Quote Email
 
 on:
-  schedule:
-    # 11:00 UTC = 7:00 AM US Eastern (EDT, UTC-4). During EST (UTC-5) this
-    # runs at 6:00 AM Eastern instead — shift by 1 hour twice a year if you
-    # want a fixed local time, or change this to your own timezone's offset.
-    - cron: "0 11 * * *"
+  # Daily schedule is paused — uncomment to resume automatic sending.
+  # schedule:
+  #   # 11:00 UTC = 7:00 AM US Eastern (EDT, UTC-4). During EST (UTC-5) this
+  #   # runs at 6:00 AM Eastern instead — shift by 1 hour twice a year if you
+  #   # want a fixed local time, or change this to your own timezone's offset.
+  #   - cron: "0 11 * * *"
   workflow_dispatch: {}
 
 permissions:
